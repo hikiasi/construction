@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { Camera, Calendar, MapPin, Maximize } from 'lucide-react';
 
 const projects = [
@@ -72,12 +73,14 @@ const Portfolio = () => {
               className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden group hover:shadow-2xl transition-all"
             >
               <div className="h-64 overflow-hidden relative">
-                <img
+                <Image
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute top-4 right-4 bg-primary text-white px-4 py-1 rounded-full text-sm font-bold shadow-md">
+                <div className="absolute top-4 right-4 bg-primary text-white px-4 py-1 rounded-full text-sm font-bold shadow-md z-10">
                   {project.period}
                 </div>
               </div>

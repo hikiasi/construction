@@ -16,7 +16,7 @@ const StickyCTA = () => {
       const isMobile = window.innerWidth < 768;
 
       if (isMobile) {
-        setIsVisible(scrollPos > 100);
+        setIsVisible(true);
       } else {
         setIsVisible(scrollPercentage > 50);
       }

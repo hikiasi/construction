@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { CheckCircle } from 'lucide-react';
 
 const Hero = () => {
@@ -7,10 +8,12 @@ const Hero = () => {
       {/* Hero Background */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-secondary/70 z-10" />
-        <img
-          src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=2000"
+        <Image
+          src="/images/hero-house.png"
           alt="Построенный дом"
-          className="w-full h-full object-cover"
+          fill
+          priority
+          className="object-cover"
         />
       </div>
 

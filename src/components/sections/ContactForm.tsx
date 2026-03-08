@@ -7,19 +7,22 @@ const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
-    email: ''
+    email: '',
+    agreed: false
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.agreed) return;
+
     setIsSubmitting(true);
     // Simulate API call
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSuccess(true);
-      setFormData({ name: '', phone: '', email: '' });
+      setFormData({ name: '', phone: '', email: '', agreed: false });
     }, 1500);
   };
 
@@ -114,9 +117,23 @@ const ContactForm = () => {
                     />
                   </div>
 
+                  <div className="flex items-start space-x-3">
+                    <input
+                      type="checkbox"
+                      id="agreed"
+                      required
+                      className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary cursor-pointer"
+                      checked={formData.agreed}
+                      onChange={(e) => setFormData({ ...formData, agreed: e.target.checked })}
+                    />
+                    <label htmlFor="agreed" className="text-sm text-gray-600 cursor-pointer">
+                      Я согласен на обработку персональных данных в соответствии с <a href="/privacy" className="text-primary hover:underline" target="_blank">политикой конфиденциальности</a>
+                    </label>
+                  </div>
+
                   <button
                     type="submit"
-                    disabled={isSubmitting}
+                    disabled={isSubmitting || !formData.agreed}
                     className="w-full bg-primary hover:bg-primary-dark text-white py-5 rounded-xl font-bold text-xl shadow-lg shadow-primary/30 transition-all hover:-translate-y-1 active:scale-95 flex items-center justify-center disabled:bg-gray-400 disabled:shadow-none disabled:translate-y-0"
                   >
                     {isSubmitting ? "Отправка..." : "Получить бесплатный расчёт"}
