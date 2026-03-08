@@ -1,0 +1,15 @@
+
+> landing@1.0.0 dev
+> next dev
+
+ ⚠ Port 3000 is in use by an unknown process, using available port 3004 instead.
+   ▲ Next.js 15.5.12
+   - Local:        http://localhost:3004
+   - Network:      http://192.168.0.2:3004
+
+ ✓ Starting...
+ ✓ Ready in 2.1s
+ ○ Compiling / ...
+ ✓ Compiled / in 8.6s (658 modules)
+ ✓ Compiled in 331ms (253 modules)
+ GET / 200 in 10599ms
