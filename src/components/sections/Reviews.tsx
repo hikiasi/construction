@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { Quote, Star } from 'lucide-react';
 
 const reviews = [
@@ -53,11 +54,15 @@ const Reviews = () => {
               <h4 className="text-xl font-bold text-secondary mb-4 leading-tight">{review.title}</h4>
               <p className="text-gray-600 mb-8 flex-grow leading-relaxed">«{review.text}»</p>
               <div className="flex items-center pt-6 border-t border-gray-100">
-                <img
-                  src={review.image}
-                  alt={review.name}
-                  className="w-12 h-12 rounded-full object-cover mr-4 grayscale hover:grayscale-0 transition-all"
-                />
+                <div className="relative w-12 h-12 rounded-full overflow-hidden mr-4 grayscale hover:grayscale-0 transition-all">
+                  <Image
+                    src={review.image}
+                    alt={review.name}
+                    fill
+                    sizes="48px"
+                    className="object-cover"
+                  />
+                </div>
                 <div>
                   <p className="font-bold text-secondary text-sm">{review.name}</p>
                   <p className="text-gray-500 text-xs">{review.project}</p>
